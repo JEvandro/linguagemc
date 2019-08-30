@@ -1,0 +1,50 @@
+# include <stdio.h>
+# include <string.h>
+
+int main()
+{
+	int T,T1,C,C1,A,B,Sub;
+	char str[55],str1[55];
+	
+	while (gets(str) != NULL){
+		gets(str1);
+		T = strlen(str);
+		T1 = strlen(str1);
+		Sub=0;	B=Sub;
+		
+		if (T>=T1){ // verifica a srtrinf com maior tamanho
+		for (C=0;C<T;C++){
+			A=C;
+		for (C1=0;C1<T1;C1++){
+			if (str[A] == str1[C1]){
+				Sub++;
+				A++;
+			}else{
+				if (Sub>B){ // Guarda a atual e maior substrinf da string
+					B = Sub;
+				}
+				Sub = 0;
+				A=C;
+			}
+		}
+		}
+		}else{
+			for (C=0;C<T1;C++){
+			A=C;
+			for (C1=0;C1<T;C1++){
+				if (str1[A] == str[C1]){
+					Sub++;
+					A++;
+				}else{
+					if (Sub>B){
+					B = Sub;
+					}
+					Sub = 0;
+					A=C;
+				}
+			}
+			}
+		}
+		printf("%d\n",B); // maior substring
+	}
+}
